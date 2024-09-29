@@ -148,6 +148,35 @@ class Solution {
     }
 }
 ```
+## 9. Plus One
+``` java
+class Solution {
+    public int[] plusOne(int[] digits) {
+        
+         if(digits[digits.length - 1] < 9) {
+            digits[digits.length - 1] += 1;
+            return digits;
+        }
+        int i = digits.length - 1;
+        while(i >= 0 ) {
+            if(digits[i] == 9) {
+                digits[i] = 0;
+                --i;
+            }
+            else {
+                digits[i] += 1;
+                break;
+            }
+        }
+        if(i == -1) {
+            digits = new int[digits.length + 1];
+            digits[0] = 1;
+            return digits;
+        }    
+        return digits;
+    }
+}
+```
 
 
  
