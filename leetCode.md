@@ -256,6 +256,26 @@ class Solution {
     
 }
 ```
+## 14. Richest Customer Wealth
+``` java
+class Solution {
+    public int maximumWealth(int[][] accounts) {
+        int maxWealth = Integer.MIN_VALUE;
+        for(int[] customer : accounts) {
+            int totWealth = 0;
+            for(int bank : customer) {
+                totWealth += bank;
+            }
+            if(maxWealth < totWealth ) {
+                maxWealth = totWealth;
+            }
+        }
+        return maxWealth;
+    }
+}
+```
+
+
  
 
 
