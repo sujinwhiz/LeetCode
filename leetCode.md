@@ -274,7 +274,35 @@ class Solution {
     }
 }
 ```
-## 15. 
+## 15. Shuffle the array
+``` java
+class Solution {
+    public int[] shuffle(int[] nums, int n) {
+        int[] shuffledarr = new int[nums.length];
+        for(int i = 0,j = 0; i < n; ++i) {
+            shuffledarr[j++] = nums[i];
+            shuffledarr[j++] = nums[n + i];
+        }
+        return shuffledarr;
+    }
+}
+```
+## 16. Kids with greatest no of candies
+``` java
+class Solution {
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        List<Boolean> list = new ArrayList<>();
+        int maxCandy = Integer.MIN_VALUE;
+        for(int candy : candies) {
+           maxCandy = Math.max(maxCandy, candy);
+        }
+        for(int candy : candies) {
+            list.add(candy + extraCandies >= maxCandy);
+        }
+        return list;
+    }
+}
+```
 
 
  
