@@ -303,6 +303,52 @@ class Solution {
     }
 }
 ```
+## 17. No of good pairs
+``` java
+class Solution {
+    public int numIdenticalPairs(int[] nums) {
+        int goodPairs = 0;
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        for(int num : nums) {
+            int count = hm.getOrDefault(num,0);
+            goodPairs += count;
+            hm.put(num, count + 1);
+        }
+        return goodPairs;
+    }
+}
+```
+## 18. How many no are smaller than current number
+``` java
+class Solution {
+    public int[] smallerNumbersThanCurrent(int[] nums) {
+         int n = nums.length;
+         int[] result = new int[n];
+         int[] sortedArray = nums.clone();
+         Arrays.sort(sortedArray);
+
+         for(int i = 0; i < n; ++i) {
+            result[i] = findIndexOf(nums[i],sortedArray);
+         }
+         return result;
+    }
+    public int findIndexOf(int num, int[] sortedArray) {
+        int low = 0;
+        int high = sortedArray.length - 1;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (sortedArray[mid] < num) {
+                low = mid + 1; 
+            } else {
+                high = mid - 1; 
+            }
+        }
+        return low; 
+    }
+}
+```
+
 
 
  
