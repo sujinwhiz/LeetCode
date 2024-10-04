@@ -362,6 +362,23 @@ class Solution {
     }
 }
 ```
+## 20. Check if the sentence is Pangram
+``` java
+class Solution {
+    public boolean checkIfPangram(String sentence) {
+        if(sentence.length() < 26) return false;
+        boolean[] ch = new boolean[26];
+        int count = 0;
+        for(int i = 0; i < sentence.length(); ++i) {
+            if(! ch[sentence.charAt(i) - 'a']) {
+                ch[sentence.charAt(i) - 'a'] = true;
+                ++count;
+            }
+        }
+        return count == 26;
+    }
+}
+```
 
 
 
