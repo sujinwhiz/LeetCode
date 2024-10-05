@@ -430,6 +430,37 @@ class Solution {
     }
 }
 ```
+## 24. Cell with odd values in a matrix
+``` java
+class Solution {
+    public int oddCells(int m, int n, int[][] indices) {
+        int oddCells = 0;
+        int[][] cells = new int[m][n];
+
+        for(int[] index : indices) {
+            int row = index[0];
+            int col = index[1];
+
+            for(int i = 0; i < n; ++i) {
+                cells[row][i] += 1;
+            }
+
+            for(int i = 0; i < m; ++i) {
+                cells[i][col] += 1;
+            }
+             
+        }
+        for(int[] cell : cells) {
+            for(int num : cell) {
+                if(num % 2 != 0) ++oddCells;
+            }
+        }
+    
+        return oddCells;
+        
+    }
+}
+```
 
 
 
