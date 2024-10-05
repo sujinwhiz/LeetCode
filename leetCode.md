@@ -396,6 +396,22 @@ class Solution {
     }
 }
 ```
+## 22. Find the Highest Altitude
+``` java
+class Solution {
+    public int largestAltitude(int[] gain) {
+        int maxAlti = 0;
+        int newAlti = 0;
+        for(int i = 0; i < gain.length; ++i) {
+            newAlti += gain[i];
+            if(newAlti > maxAlti) {
+                maxAlti = newAlti;
+            }
+        }
+        return maxAlti;
+    }
+}
+```
 
 
 
