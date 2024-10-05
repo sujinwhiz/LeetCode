@@ -412,6 +412,24 @@ class Solution {
     }
 }
 ```
+## 23. Flipping an image
+``` java
+class Solution {
+    public int[][] flipAndInvertImage(int[][] image) {
+        for(int[] row : image) {
+            int left = 0, right = row.length - 1;
+            while(left <= right) {
+                int temp = row[right] ^ 1;
+                row[right] = row[left] ^ 1;
+                row[left] = temp;
+                left++;
+                right--;
+            }
+        }
+        return image;
+    }
+}
+```
 
 
 
