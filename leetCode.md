@@ -510,6 +510,83 @@ class Solution {
     }
 }
 ```
+## 27. Find N Unique Integers Sum up to Zero
+```java
+class Solution {
+    public int[] sumZero(int n) {
+        int[] sol = new int[n];
+        int index = 0;
+        for(int i = 1; i <= n / 2; ++i) {
+            sol[index++] = i;
+            sol[index++] = -i;
+        }
+        if(n % 2 != 0){
+            sol[index] = 0;
+        }
+        return sol;
+    }
+}
+```
+## 28. Lucky Numbers in a Matrix
+```java
+class Solution {
+    public List<Integer> luckyNumbers(int[][] matrix) {
+        List<Integer> list = new ArrayList<>();
+        int index = 0;
+        for(int i = 0; i < matrix.length; ++i) {
+            boolean isLucky = true;
+            int rmin = Integer.MAX_VALUE;
+            for(int j = 0; j < matrix[i].length; ++j) {
+                if(matrix[i][j] < rmin) {
+                    rmin = matrix[i][j];
+                    index = j;
+                }
+            }
+
+            for(int row = 0; row < matrix.length; ++row) {
+                if(matrix[row][index] > rmin) {
+                    isLucky = false;
+                    break;
+                }
+            }
+            if(isLucky) list.add(rmin);
+
+        }
+
+        return list;
+    }
+}
+ 
+```
+## 29. Build Array from Permutation
+```java
+class Solution {
+    public int[] buildArray(int[] nums) {
+        int[] ans = new int[nums.length];
+        int index = 0;
+        for(int num : nums) {
+            ans[index++] = nums[num];
+        }
+        return ans;
+    }
+}
+```
+## 30. Transpose Matrix
+```java
+class Solution {
+    public int[][] transpose(int[][] matrix) {
+        int rowLen = matrix.length;
+        int colLen = matrix[0].length;
+        int[][] sol = new int[colLen][rowLen];
+        for(int col = 0; col < colLen; ++col) {
+            for(int row = 0; row < rowLen; ++row) {
+                 sol[col][row] = matrix[row][col];
+            }
+        }
+        return sol;
+    }
+}
+```
 
 
  
