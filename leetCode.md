@@ -55,6 +55,26 @@ class Solution {
          return arr;
     }
 }
+
+        boolean[] seen = new boolean[1001];
+
+         for(int num : num1) {
+            seen[num] = true;
+         }
+         int count = 0;
+         for(int num :num2) {
+            if(seen[num]) {
+                seen[num] = false;
+                num1[count++] = num;
+            }
+         }
+
+         int[] result = new int[count];
+         for(int i = 0; i < count; ++i) {
+            result[i] = num1[i];
+         }
+
+         return result;
 ```  
 ---
 ## 4. Move Zeroes
@@ -461,8 +481,22 @@ class Solution {
     }
 }
 ```
-
-
+## 25. Matrix Diagonal Sum
+```java
+class Solution {
+    public int diagonalSum(int[][] mat) {
+        int diagonalSum = 0;
+        int n = mat.length;
+        for(int  i = 0; i < n; ++i) {
+            diagonalSum += mat[i][i];
+            if(i != n - i - 1) {
+                diagonalSum += mat[i][n - i - 1];
+            }
+        }
+        return diagonalSum;
+    }
+}
+```
 
 
  
